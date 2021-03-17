@@ -1,0 +1,101 @@
+$base-blue: #3276e3;
+$medium-blue: darken($base-blue, 15%);
+$dark-blue: darken($base-blue, 20%);
+$light-blue: lighten($base-blue, 5%);
+$soft-blue: lighten($base-blue, 10%);
+@mixin cookiePopUp($fontSize:14px, $fontFam: "'Lato', sans-serif;", $fontColor:white, $backgroundColor: $base-blue, $yesButtonColor:$medium-blue, $noButtonColor:$light-blue, $boxShadow:$light-blue, $hoverYes: $dark-blue, $hoverNo: $soft-blue, $buttonFont: $ff-sansSerif) {
+    .card-cookies {
+        width: 400px;
+        padding: 20px;
+        background: $backgroundColor;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin: 10px;
+        border-radius: 0;
+        z-index: 3001;
+        /*  box-shadow: 1px 2px 16px $boxShadow; */
+        @media (max-width: $mobile-BP) {
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            width: 100%;
+            border-radius: 0;
+        }
+        .header-cookies {
+            font-size: $fontSize;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: $fontColor;
+        }
+        .content-cookies {
+            font-size: 12px;
+            line-height: 20px;
+            margin-bottom: 10px;
+            color: $fontColor;
+            .cookies-settings {
+                margin: 15px 0;
+                padding: 0 20px;
+                .element-cookies {
+                    display: flex;
+                    .text-settings {
+                        width: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .toggle-cookies {
+                        display: flex;
+                        align-items: center;
+                        width: 50%;
+                    }
+                }
+            }
+        }
+        .actions-cookies a {
+            box-sizing: border-box;
+            padding: 6px 30px;
+            margin: 0px 8px;
+            line-height: 16px;
+            background: $yesButtonColor;
+            display: inline-block;
+            font-family: $buttonFont;
+            font-weight: 500;
+            color: $fontColor;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 12px;
+        }
+        .actions-cookies .nah {
+            color: $fontColor;
+            /* background: $noButtonColor; */
+            border: 1px solid white;
+            font-family: $buttonFont;
+            font-size: 12px;
+            background-color: transparent;
+        }
+        .actions-cookies .nah:hover {
+            background: $hoverNo;
+            font-family: $buttonFont;
+        }
+        .actions-cookies a:hover {
+            background: $hoverYes;
+        }
+    }
+}
+
+.cookies {
+    /* background-color: red; */
+    @include cookiePopUp($fontSize: 20px, $fontFam: $ff-requim-text, $fontColor: $offWhite, $backgroundColor: #658B86, $yesButtonColor: $salmon, $noButtonColor: $redWine, $boxShadow: $light-blue, $hoverYes: $black, $hoverNo: $gray);
+}
+
+.helper-button-settings {
+    background: $darkBlue;
+    border: 1px solid white;
+}
+
+.helper-settings {
+    display: none;
+}

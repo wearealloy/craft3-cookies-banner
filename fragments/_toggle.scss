@@ -1,0 +1,52 @@
+$toggle-background-color-on: #F7BA8F;
+$toggle-background-color-off: darkgray;
+$toggle-control-color: white;
+$toggle-width: 50px;
+$toggle-height: 20px;
+$toggle-gutter: 5px;
+$toggle-radius: 50%;
+$toggle-control-speed: .15s;
+$toggle-control-ease: ease-in;
+// These are our computed variables
+// change at your own risk.
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);
+.toggle-control {
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    input {
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    input:checked~.control {
+        background-color: $toggle-background-color-on;
+        &:after {
+            left: $toggle-width - $toggle-control-size - $toggle-gutter;
+        }
+    }
+    .control {
+        position: absolute;
+        height: $toggle-height;
+        width: $toggle-width;
+        border-radius: $toggle-radius;
+        background-color: $toggle-background-color-off;
+        transition: background-color $toggle-control-speed $toggle-control-ease;
+        &:after {
+            content: "";
+            position: absolute;
+            left: $toggle-gutter;
+            top: $toggle-gutter;
+            width: $toggle-control-size;
+            height: $toggle-control-size;
+            border-radius: $toggle-radius;
+            background: $toggle-control-color;
+            transition: left $toggle-control-speed $toggle-control-ease;
+        }
+    }
+}
