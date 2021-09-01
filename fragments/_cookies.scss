@@ -89,6 +89,8 @@ $soft-blue: lighten($base-blue, 10%);
 .cookies {
     /* background-color: red; */
     @include cookiePopUp($fontSize: 20px, $fontFam: $ff-requim-text, $fontColor: $offWhite, $backgroundColor: #658B86, $yesButtonColor: $salmon, $noButtonColor: $redWine, $boxShadow: $light-blue, $hoverYes: $black, $hoverNo: $gray);
+    opacity: 0;
+    display: none; 
 }
 
 .helper-button-settings {
